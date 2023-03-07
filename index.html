@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Submit Last.fm username and email</title>
+</head>
+<body>
+	<h2>Enter your Last.fm username and email:</h2>
+	<form action="submit.py" method="post">
+		<label for="username">Last.fm username:</label>
+		<input type="text" id="username" name="username"><br><br>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"><br><br>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
+In this example, the form has two input fields - one for the Last.fm username and another for the email. The form is submitted to a server-side script called submit.py using the HTTP POST method.
+
+In the submit.py script, you can access the values submitted by the user using the Python cgi module. Here's an example of how you can retrieve the values:
+
+python
+Copy code
+import cgi
+
+# Get the form data
+form = cgi.FieldStorage()
+
+# Get the Last.fm username and email
+username = form.getvalue('username')
+email = form.getvalue('email')
+
+# Do something with the username and email
+print(f"Last.fm username: {username}")
+print(f"Email: {email}")
+In this example, we use the cgi.FieldStorage() method to retrieve the form data submitted by the user. We then use the getvalue() method to retrieve the values of the username and email fields. Finally, we print the values to the console, but you can replace this with your own code to process the data.
+
